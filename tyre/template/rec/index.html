@@ -1,0 +1,31 @@
+{% extends 'rec/base.html' %}
+{% block body %}
+<h3 class="text-primary" style="text-align: center;">Tyre Issue List Without Reciept Tyres</h3>
+<hr style="border-top:1px dotted #000;"/>
+<table class="table table-bordered" id="example" class="display" cellspacing="0" width="100%">
+    <thead class="alert-warning">
+        <tr>
+            <th>From_date list</th>
+            <th>To_Date</th>
+            <th>Tyre_no</th>
+            <th>Vehicle_no</th>
+            <th>On_Date</th>
+            <th>Km_Run</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.From_date }}</td>
+            <td>{{ member.To_Date }}</td>
+            <td>{{ member.Tyre_no }}</td>
+            <td>{{ member.Vehicle_no }}</td>
+            <td>{{ member.On_Date }}</td>
+            <td>{{ member.Km_Run }}</td>
+            <td><center><a class="btn btn-sm btn-warning" href="edit/{{ member.id }}"><span class="glyphicon glyphicon-edit"></span></a> <a class="btn btn-sm btn-danger" href="delete/{{ member.id }}"><span class="glyphicon glyphicon-trash"></span></a></center></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

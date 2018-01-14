@@ -1,0 +1,41 @@
+{% extends 'rec/base.html' %}
+{% block body %}
+    {% if members %}
+    <form method="POST" action="update/{{ members.id }}">
+        {% else %}
+        <form class="form-inline"  action="create" method="POST">
+    {% endif %}
+        {% csrf_token %}
+        <div  
+    class="row" > <div  
+    class="col-md-3" > <div id="div_id_From_date" class="form-group"> <label for="id_From_date" class="control-label  requiredField">
+                From date<span class="asteriskField">*</span> </label> <div class="controls "> <input type="date"  value="{{ members.From_date }}" name="From_date" class="datepicker dateinput form-control" required id="id_From_date" /> </div> </div> </div>
+<div  
+    class="col-md-3" > <div id="div_id_To_Date" class="form-group"> <label for="id_To_Date" class="control-label  requiredField">
+                To Date<span class="asteriskField">*</span> </label> <div class="controls "> <input type="date" value="{{ members.To_date }}" name="To_Date" class="datepicker dateinput form-control" required id="id_To_Date" /> </div> </div> </div>
+<div  
+    class="col-md-3" > <div id="div_id_Tyre_no" class="form-group"> <label for="id_Tyre_no" class="control-label  requiredField">
+                Tyre no<span class="asteriskField">*</span> </label> <div class="controls "> <input type="text" value="{{ members.Tyre_no }}" name="Tyre_no" maxlength="20" class="textinput textInput form-control" required id="id_Tyre_no" /> </div> </div> </div>
+
+</div>
+<div class="panel-heading" style="text-align: center;font-size: 20px;background-color: #d8d8d8; color: #000; border: 1px solid #d8d8d8;"><br></div><br><div  
+    class="row" > <div  
+    class="col-md-3" > <div id="div_id_Vehicle_no" class="form-group"> <label for="id_Vehicle_no" class="control-label  requiredField">
+                Vehicle no<span class="asteriskField">*</span> </label> <div class="controls "> <input type="text" value="{{ members.Vehicle_no }}" name="Vehicle_no" maxlength="20" class="textinput textInput form-control" required id="id_Vehicle_no" /> </div> </div> </div>
+<div  
+    class="col-md-3" > <div id="div_id_On_Date" class="form-group"> <label for="id_On_Date" class="control-label  requiredField">
+                On Date<span class="asteriskField">*</span> </label> <div class="controls "> <input type="date" value="{{ members.On_Date }}"  name="On_Date" class="datepicker dateinput form-control" required id="id_On_Date" /> </div> </div> </div>
+<div  
+    class="col-md-3" > <div id="div_id_Km_Run" class="form-group"> <label for="id_Km_Run" class="control-label  requiredField">
+                Km Run<span class="asteriskField">*</span> </label> <div class="controls "> <input type="text" value="{{ members.Km_Run }}" name="Km_Run" maxlength="20" class="textinput textInput form-control" required id="id_Km_Run" /> </div> </div> </div>
+
+</div>
+            {% if members %}
+    <div class="form-group">
+            <button type="submit" class="btn btn-sm btn-warning"><span class="glyphicon glyphicon-edit"></span></button>
+        </div>
+        {% else %}
+        <button type="submit" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+    {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,13 @@
+
+{% load crispy_forms_tags %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="text-align: center;font-size: 30px;">MRN Invoice</h3>
+      </div>
+      
+      <div class="panel-body">
+          {% csrf_token %}
+        {% crispy form %}
+      </div>
+    </div>
